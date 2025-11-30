@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import MobileMenuDrawer from "./MobileMenuDrawer";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,7 +16,7 @@ const Navbar = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <nav className="w-screen max-w-full rounded-lg bg-gray-50 border-b border-gray-200">
+    <nav className="w-screen max-w-full rounded-lg bg-gray-50 border-b border-gray-200 relative">
       <div className="w-full max-w-full px-6 py-4">
         <div className="w-full flex items-center justify-between">
           {/* Desktop Navigation Links */}
@@ -27,7 +27,7 @@ const Navbar = () => {
                 to={link.path}
                 className={({ isActive }) =>
                   `transition-colors duration-200 text-center align-middle ${
-                    isActive ? "text-blue-600" : "text-gray-700 "
+                    isActive ? "text-button-bg" : "text-gray-700 "
                   }`
                 }
                 style={{
@@ -59,59 +59,13 @@ const Navbar = () => {
             </Button>
           </Link>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMenu}
-            className="md:hidden ml-auto text-gray-700 hover:text-blue-600 transition-colors p-2"
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile Menu Drawer Component */}
+          <MobileMenuDrawer
+            isOpen={isMenuOpen}
+            onToggle={toggleMenu}
+            navLinks={navLinks}
+          />
         </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.name}
-                to={link.path}
-                onClick={() => setIsMenuOpen(false)}
-                className={({ isActive }) =>
-                  `transition-colors duration-200 text-center py-2 ${
-                    isActive
-                      ? "text-blue-600"
-                      : "text-gray-700 hover:text-blue-600"
-                  }`
-                }
-                style={{
-                  fontFamily: "Inter",
-                  fontWeight: 400,
-                  fontSize: "15.68px",
-                  lineHeight: "22.35px",
-                  letterSpacing: "-0.08px",
-                }}
-              >
-                {link.name}
-              </NavLink>
-            ))}
-            {/* Contact Button - Mobile */}
-            <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
-              <Button
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 py-2 h-11 shadow-sm text-center"
-                style={{
-                  fontFamily: "Plus Jakarta Sans",
-                  fontWeight: 500,
-                  fontSize: "15.78px",
-                  lineHeight: "22.47px",
-                  letterSpacing: "-0.08px",
-                }}
-              >
-                Contact
-              </Button>
-            </Link>
-          </div>
-        )}
       </div>
     </nav>
   );
