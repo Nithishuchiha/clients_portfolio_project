@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Facebook, Linkedin, Twitter, Instagram } from "lucide-react";
+import {
+  FaFacebookF,
+  FaLinkedinIn,
+  FaTwitter,
+  FaInstagram,
+} from "react-icons/fa";
 import navisLogo from "../assets/navisLogo.png";
 
 const Footer = () => {
@@ -13,20 +18,24 @@ const Footer = () => {
     setEmail("");
   };
 
-  const mobileLinks = [
-    { name: "Home V.1", path: "/" },
-    { name: "About V.1", path: "/about" },
-    { name: "Home V.2", path: "/" },
-    { name: "About V.2", path: "/about" },
-    { name: "Home V.3", path: "/" },
-    { name: "About V.3", path: "/about" },
-    { name: "Blog", path: "/blogs" },
-    { name: "Case studies", path: "/portfolio" },
-    { name: "Contact V.1", path: "/contact" },
-    { name: "Contact V.2", path: "/contact" },
-    { name: "Contact V.3", path: "/contact" },
-    { name: "Services", path: "/service" },
-  ];
+  const mobileLinks = {
+    column1: [
+      { name: "Home V.1", path: "/" },
+      { name: "Home V.2", path: "/" },
+      { name: "Home V.3", path: "/" },
+      { name: "Blog", path: "/blogs" },
+      { name: "Contact V.1", path: "/contact" },
+      { name: "Contact V.2", path: "/contact" },
+      { name: "Contact V.3", path: "/contact" },
+      { name: "Services", path: "/service" },
+    ],
+    column2: [
+      { name: "About V.1", path: "/about" },
+      { name: "About V.2", path: "/about" },
+      { name: "About V.3", path: "/about" },
+      { name: "Case studies", path: "/portfolio" },
+    ],
+  };
 
   const footerLinks = {
     column1: [
@@ -50,10 +59,10 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: FaFacebookF, href: "#", label: "Facebook" },
+    { icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
+    { icon: FaTwitter, href: "#", label: "Twitter" },
+    { icon: FaInstagram, href: "#", label: "Instagram" },
   ];
 
   return (
@@ -76,7 +85,6 @@ const Footer = () => {
 
           {/* Newsletter */}
           <h3
-            className="mb-4"
             style={{
               fontFamily: "Inter",
               fontWeight: 400,
@@ -84,7 +92,11 @@ const Footer = () => {
               lineHeight: "30.5px",
               letterSpacing: "-0.92px",
               verticalAlign: "middle",
+              width: "243.58px",
+              height: "24.76px",
+              opacity: 1,
             }}
+            className="mb-4"
           >
             Subscribe to our news later
           </h3>
@@ -114,24 +126,46 @@ const Footer = () => {
 
           {/* Mobile Links - 2 Column Grid */}
           <div className="grid grid-cols-2 gap-x-8 gap-y-4 mb-8">
-            {mobileLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                className="text-gray-300 hover:text-white transition-colors"
-                style={{
-                  fontFamily: "Inter",
-                  fontSize: "14px",
-                  fontWeight: 400,
-                }}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
+            {/* Column 1 */}
+            <div className="flex flex-col gap-y-4">
+              {mobileLinks.column1.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className={`transition-colors ${
+                    link.name === "Services"
+                      ? "text-white font-medium"
+                      : "text-gray-300 hover:text-white"
+                  }`}
+                  style={{
+                    fontFamily: "Inter",
+                    fontSize: "14px",
+                    fontWeight: link.name === "Services" ? 500 : 400,
+                  }}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
 
-          {/* Divider Line */}
-          <div className="border-t border-dashed border-gray-600 mb-8"></div>
+            {/* Column 2 */}
+            <div className="flex flex-col gap-y-4">
+              {mobileLinks.column2.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className="text-gray-300 hover:text-white transition-colors"
+                  style={{
+                    fontFamily: "Inter",
+                    fontSize: "14px",
+                    fontWeight: 400,
+                  }}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+          </div>
 
           {/* Social Icons */}
           <div className="flex justify-center gap-6 mb-6">
@@ -165,9 +199,9 @@ const Footer = () => {
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden md:grid md:grid-cols-[1fr_auto_auto_auto_auto] gap-x-12 lg:gap-x-16">
-          {/* Newsletter Section */}
-          <div>
+        <div className="hidden md:flex md:justify-around md:items-start">
+          {/* Newsletter Section - Left Side */}
+          <div className="pt-6">
             <h3
               className="mb-4"
               style={{
@@ -184,7 +218,7 @@ const Footer = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="px-4 py-2.5 rounded-lg bg-[#3A3A3A] text-white placeholder-gray-500 border border-transparent focus:border-blue-500 focus:outline-none"
+                className="px-4 py-2.5 rounded-full bg-[#3A3A3A] text-white placeholder-gray-500 border border-transparent focus:border-blue-500 focus:outline-none"
                 style={{
                   fontFamily: "Inter",
                   fontSize: "13px",
@@ -193,7 +227,7 @@ const Footer = () => {
               />
               <Button
                 type="submit"
-                className="bg-button-bg hover:bg-blue-700 text-white rounded-lg px-6 py-2.5 font-medium"
+                className="bg-button-bg hover:bg-blue-700 text-white rounded-full px-6 py-2.5 font-medium"
                 style={{
                   fontFamily: "Plus Jakarta Sans",
                   fontSize: "13px",
@@ -204,58 +238,61 @@ const Footer = () => {
             </form>
           </div>
 
-          {/* Links Column 1 */}
-          <div className="flex flex-col gap-3">
-            {footerLinks.column1.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                className="text-gray-300 hover:text-white transition-colors whitespace-nowrap"
-                style={{
-                  fontFamily: "Inter",
-                  fontSize: "14px",
-                  fontWeight: 400,
-                }}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
+          {/* Links Columns - Right Side */}
+          <div className="flex gap-x-8 lg:gap-x-12">
+            {/* Links Column 1 */}
+            <div className="flex flex-col gap-3">
+              {footerLinks.column1.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className="text-gray-300 hover:text-white transition-colors whitespace-nowrap"
+                  style={{
+                    fontFamily: "Inter",
+                    fontSize: "14px",
+                    fontWeight: 400,
+                  }}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
 
-          {/* Links Column 2 */}
-          <div className="flex flex-col gap-3">
-            {footerLinks.column2.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                className="text-gray-300 hover:text-white transition-colors whitespace-nowrap"
-                style={{
-                  fontFamily: "Inter",
-                  fontSize: "14px",
-                  fontWeight: 400,
-                }}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
+            {/* Links Column 2 */}
+            <div className="flex flex-col gap-3">
+              {footerLinks.column2.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className="text-gray-300 hover:text-white transition-colors whitespace-nowrap"
+                  style={{
+                    fontFamily: "Inter",
+                    fontSize: "14px",
+                    fontWeight: 400,
+                  }}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
 
-          {/* Links Column 3 */}
-          <div className="flex flex-col gap-3">
-            {footerLinks.column3.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                className="text-gray-300 hover:text-white transition-colors whitespace-nowrap"
-                style={{
-                  fontFamily: "Inter",
-                  fontSize: "14px",
-                  fontWeight: 400,
-                }}
-              >
-                {link.name}
-              </Link>
-            ))}
+            {/* Links Column 3 */}
+            <div className="flex flex-col gap-3">
+              {footerLinks.column3.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className="text-gray-300 hover:text-white transition-colors whitespace-nowrap"
+                  style={{
+                    fontFamily: "Inter",
+                    fontSize: "14px",
+                    fontWeight: 400,
+                  }}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
 

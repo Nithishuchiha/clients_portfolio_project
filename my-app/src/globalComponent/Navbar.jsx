@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import MobileMenuDrawer from "./MobileMenuDrawer";
+import PrimaryButton from "./PrimaryButton";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,10 +45,10 @@ const Navbar = () => {
 
           {/* Contact Button - Desktop */}
           <Link to="/contact" className="hidden md:block">
-            <Button
-              className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 py-2 h-11 shadow-sm text-center align-middle"
+            <PrimaryButton
+              fullWidth={false}
+              className="px-8 py-2 h-11 shadow-sm"
               style={{
-                fontFamily: "Plus Jakarta Sans",
                 fontWeight: 500,
                 fontSize: "15.78px",
                 lineHeight: "22.47px",
@@ -56,7 +56,7 @@ const Navbar = () => {
               }}
             >
               Contact
-            </Button>
+            </PrimaryButton>
           </Link>
 
           {/* Mobile Menu Drawer Component */}

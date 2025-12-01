@@ -37,7 +37,7 @@ const MobileMenuDrawer = ({ isOpen, onToggle, navLinks }) => {
                   `transition-all duration-300 text-center py-3 px-4 rounded-lg hover:bg-gray-50 ${
                     isActive
                       ? "text-button-bg bg-blue-50 font-semibold"
-                      : "text-gray-700 hover:text-button-bg"
+                      : "text-gray-700 "
                   }`
                 }
                 style={{
