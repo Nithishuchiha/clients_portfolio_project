@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import PrimaryButton from "./PrimaryButton";
+import PrimaryButton from "@/globalComponent/PrimaryButton";
 import { Download } from "lucide-react";
-import arunImage from "../assets/arunAnna_image.png";
-import alternateImage from "../assets/alternate.jpg";
+import arunImage from "@/assets/arunAnna_image.png";
+import alternateImage from "@/assets/alternate.jpg";
 
 const HeroSection = () => {
   const stats = [

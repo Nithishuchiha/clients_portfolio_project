@@ -7,7 +7,8 @@ import Service from "./pages/Service";
 import Blogs from "./pages/Blogs";
 import ContactUs from "./pages/ContactUs";
 import "./App.css";
-import HeroSection from "./globalComponent/HeroSection";
+import HeroSection from "./pages/Home/HeroSection";
+import AboutUs from "./pages/Home/AboutUs";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/footer" element={<Footer />} />
           <Route path="/hero" element={<HeroSection />} />
+          <Route path="/home's-about" element={<AboutUs />} />
         </Routes>
       </div>
     </>
