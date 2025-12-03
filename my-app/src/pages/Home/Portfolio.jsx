@@ -1,12 +1,14 @@
 import React, { useState, useRef } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import rameshwaramImg from "@/assets/Home's_images/RameshWaram_img.png";
 import seaSoftImg from "@/assets/Home's_images/seaSoft_img.png";
 import container3Img from "@/assets/Home's_images/container3-img.png";
 import container4Img from "@/assets/Home's_images/container4_img.png";
+import mobileOpenImg from "@/assets/Home's_images/mobile's_openImg.png";
 
 const Portfolio = () => {
   const [showAll, setShowAll] = useState(false);
+  const [currentMobileIndex, setCurrentMobileIndex] = useState(0);
   const scrollContainerRef = useRef(null);
 
   const handleSeeMore = () => {
@@ -29,6 +31,21 @@ const Portfolio = () => {
       setTimeout(() => {
         setShowAll(false);
       }, 800);
+    }
+  };
+
+  const handleMobileNext = () => {
+    if (currentMobileIndex === 0) {
+      // Move from intro to first item
+      setCurrentMobileIndex(1);
+    } else if (currentMobileIndex < portfolioItems.length) {
+      setCurrentMobileIndex((prev) => prev + 1);
+    }
+  };
+
+  const handleMobilePrev = () => {
+    if (currentMobileIndex > 0) {
+      setCurrentMobileIndex((prev) => prev - 1);
     }
   };
 
@@ -89,8 +106,8 @@ const Portfolio = () => {
     <section className="w-full py-12 md:py-16 lg:py-20 px-4 md:px-6 min-w-[320px]">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-12">
-          <div>
+        <div className="flex flex-col items-center text-center lg:flex-row lg:items-start lg:text-left lg:justify-between mb-12">
+          <div className="w-full lg:w-auto">
             {/* Portfolio Badge */}
             <div className="inline-block mb-6">
               <span
@@ -111,6 +128,7 @@ const Portfolio = () => {
 
             {/* Heading */}
             <h2
+              className="mb-6 lg:mb-0"
               style={{
                 fontFamily: "Inter",
                 fontSize: "33.79px",
@@ -126,10 +144,10 @@ const Portfolio = () => {
             </h2>
           </div>
 
-          {/* See More Button */}
+          {/* See More Button - Both Mobile & Desktop */}
           <button
             onClick={handleSeeMore}
-            className="mt-6 lg:mt-0 px-6 py-3 bg-button-bg text-white rounded-full flex items-center gap-2 hover:opacity-90 transition-opacity"
+            className="px-6 py-3 bg-button-bg text-white rounded-full flex items-center gap-2 hover:opacity-90 transition-opacity lg:mt-0"
             style={{
               fontFamily: "Inter",
               fontSize: "14px",
@@ -141,10 +159,10 @@ const Portfolio = () => {
           </button>
         </div>
 
-        {/* Portfolio Horizontal Scroll */}
+        {/* Portfolio Horizontal Scroll - Desktop */}
         <div
           ref={scrollContainerRef}
-          className="flex gap-8 overflow-x-auto scroll-smooth pb-4 scrollbar-hide"
+          className="hidden lg:flex gap-8 overflow-x-auto scroll-smooth pb-4 scrollbar-hide"
           style={{
             scrollbarWidth: "none",
             msOverflowStyle: "none",
@@ -199,7 +217,7 @@ const Portfolio = () => {
                   }}
                   className={
                     item.id === 3 || item.id === 4
-                      ? " object-center"
+                      ? "object-center "
                       : "object-contain"
                   }
                 />
@@ -253,6 +271,227 @@ const Portfolio = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Mobile Portfolio Card View */}
+        <div className="lg:hidden">
+          <div className="relative">
+            {/* Mobile Card */}
+            <div className="mb-6">
+              {/* Image Card */}
+              <div
+                className={`${
+                  currentMobileIndex === 0
+                    ? "bg-[#B8B8B8]"
+                    : portfolioItems[currentMobileIndex - 1].bgColor
+                } overflow-hidden flex items-center justify-center mb-6 rounded-3xl`}
+                style={{
+                  height: "400px",
+                }}
+              >
+                <img
+                  src={
+                    currentMobileIndex === 0
+                      ? mobileOpenImg
+                      : portfolioItems[currentMobileIndex - 1].image
+                  }
+                  alt={
+                    currentMobileIndex === 0
+                      ? "Our Success Stories"
+                      : portfolioItems[currentMobileIndex - 1].title
+                  }
+                  className={
+                    currentMobileIndex === 0 ||
+                    portfolioItems[currentMobileIndex - 1]?.id === 3 ||
+                    portfolioItems[currentMobileIndex - 1]?.id === 4
+                      ? "object-cover object-center w-full h-full"
+                      : "object-contain"
+                  }
+                  style={{
+                    width:
+                      currentMobileIndex === 0 ||
+                      portfolioItems[currentMobileIndex - 1]?.id === 3 ||
+                      portfolioItems[currentMobileIndex - 1]?.id === 4
+                        ? "100%"
+                        : portfolioItems[currentMobileIndex - 1]?.id === 2
+                        ? "min(291px, 80%)"
+                        : "auto",
+                    height:
+                      currentMobileIndex === 0 ||
+                      portfolioItems[currentMobileIndex - 1]?.id === 3 ||
+                      portfolioItems[currentMobileIndex - 1]?.id === 4
+                        ? "100%"
+                        : portfolioItems[currentMobileIndex - 1]?.id === 2
+                        ? "min(205px, 80%)"
+                        : "auto",
+                    maxWidth:
+                      currentMobileIndex === 0 ||
+                      portfolioItems[currentMobileIndex - 1]?.id === 3 ||
+                      portfolioItems[currentMobileIndex - 1]?.id === 4
+                        ? "100%"
+                        : portfolioItems[currentMobileIndex - 1]?.id === 2
+                        ? "291px"
+                        : "90%",
+                    maxHeight:
+                      currentMobileIndex === 0 ||
+                      portfolioItems[currentMobileIndex - 1]?.id === 3 ||
+                      portfolioItems[currentMobileIndex - 1]?.id === 4
+                        ? "100%"
+                        : portfolioItems[currentMobileIndex - 1]?.id === 2
+                        ? "205px"
+                        : "80%",
+                  }}
+                />
+              </div>
+
+              {/* Content Below Card - Only show when not on intro screen */}
+              {currentMobileIndex > 0 && (
+                <div>
+                  <h3
+                    className="mb-4"
+                    style={{
+                      fontFamily: "Inter",
+                      fontSize: "20px",
+                      fontWeight: 500,
+                      lineHeight: "28px",
+                      color: "#111111",
+                    }}
+                  >
+                    {portfolioItems[currentMobileIndex - 1].title}
+                  </h3>
+
+                  <p
+                    className="mb-6"
+                    style={{
+                      fontFamily: "Inter",
+                      fontSize: "14px",
+                      fontWeight: 300,
+                      lineHeight: "20px",
+                      color: "#666666",
+                    }}
+                  >
+                    {portfolioItems[currentMobileIndex - 1].description}
+                  </p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2">
+                    {portfolioItems[currentMobileIndex - 1].tags.map(
+                      (tag, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3 py-1 rounded-full text-xs border border-gray-300"
+                          style={{
+                            fontFamily: "Inter",
+                            fontSize: "11px",
+                            fontWeight: 400,
+                            color: "#666666",
+                          }}
+                        >
+                          {tag}
+                        </span>
+                      )
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Intro Screen Content */}
+              {currentMobileIndex === 0 && (
+                <div className="text-center">
+                  <h3
+                    className="mb-4"
+                    style={{
+                      fontFamily: "Inter",
+                      fontSize: "24px",
+                      fontWeight: 500,
+                      lineHeight: "32px",
+                      color: "#111111",
+                    }}
+                  >
+                    Operational excellence
+                  </h3>
+
+                  <p
+                    className="mb-6"
+                    style={{
+                      fontFamily: "Inter",
+                      fontSize: "14px",
+                      fontWeight: 300,
+                      lineHeight: "20px",
+                      color: "#666666",
+                    }}
+                  >
+                    Implemented streamlined processes that increased efficiency
+                    by 30%, enabling smoother operations and reducing redundant
+                    tasks. Our methods ensure consistency and measurable success
+                  </p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap justify-center gap-2 mb-6">
+                    <span
+                      className="px-3 py-1 rounded-full text-xs border border-gray-300"
+                      style={{
+                        fontFamily: "Inter",
+                        fontSize: "11px",
+                        fontWeight: 400,
+                        color: "#666666",
+                      }}
+                    >
+                      Operational Excellence
+                    </span>
+                    <span
+                      className="px-3 py-1 rounded-full text-xs border border-gray-300"
+                      style={{
+                        fontFamily: "Inter",
+                        fontSize: "11px",
+                        fontWeight: 400,
+                        color: "#666666",
+                      }}
+                    >
+                      Client Success
+                    </span>
+                    <span
+                      className="px-3 py-1 rounded-full text-xs border border-gray-300"
+                      style={{
+                        fontFamily: "Inter",
+                        fontSize: "11px",
+                        fontWeight: 400,
+                        color: "#666666",
+                      }}
+                    >
+                      Efficiency Boost
+                    </span>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Navigation Arrows */}
+            <div className="flex justify-center gap-4">
+              <button
+                onClick={handleMobilePrev}
+                disabled={currentMobileIndex === 0}
+                className={`p-3 rounded-full border-2 border-button-bg transition-all group ${
+                  currentMobileIndex === 0
+                    ? "opacity-50 cursor-not-allowed"
+                    : "hover:bg-button-bg hover:text-white"
+                }`}
+              >
+                <ChevronLeft className="w-5 h-5 text-button-bg group-hover:text-white transition-colors" />
+              </button>
+              <button
+                onClick={handleMobileNext}
+                disabled={currentMobileIndex === portfolioItems.length}
+                className={`p-3 rounded-full border-2 border-button-bg transition-all group ${
+                  currentMobileIndex === portfolioItems.length
+                    ? "opacity-50 cursor-not-allowed"
+                    : "hover:bg-button-bg hover:text-white"
+                }`}
+              >
+                <ChevronRight className="w-5 h-5 text-button-bg group-hover:text-white transition-colors" />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
