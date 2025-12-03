@@ -9,6 +9,7 @@ import ContactUs from "./pages/ContactUs";
 import "./App.css";
 import HeroSection from "./pages/Home/HeroSection";
 import AboutUs from "./pages/Home/AboutUs";
+import Portfolio from "./pages/Home/Portfolio";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/footer" element={<Footer />} />
           <Route path="/hero" element={<HeroSection />} />
           <Route path="/home's-about" element={<AboutUs />} />
+          <Route path="/home's-portfolio" element={<Portfolio />} />
         </Routes>
       </div>
     </>
