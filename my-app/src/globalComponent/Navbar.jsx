@@ -16,7 +16,7 @@ const Navbar = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <nav className="max-w-[calc(100%-1rem)] mx-auto rounded-lg bg-gray-bg border border-gray-bg relative z-50 mt-2">
+    <nav className="sticky top-0 max-w-full mx-auto rounded-lg bg-gray-bg border border-gray-bg z-50 mt-2 backdrop-blur-sm bg-opacity-95">
       <div className="w-full px-5 py-3">
         <div className="w-full flex items-center justify-between">
           {/* Desktop Navigation Links */}

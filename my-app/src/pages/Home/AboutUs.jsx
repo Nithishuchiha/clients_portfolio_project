@@ -11,8 +11,8 @@ import iconImage from "@/assets/image.png";
 
 const AboutUs = () => {
   return (
-    <section className="w-full py-12 md:py-16 lg:py-20 px-4 md:px-6 min-w-[320px]">
-      <div className="max-w-7xl mx-auto">
+    <section className="w-full py-4 md:py-4 lg:py-4  min-w-[320px]">
+      <div className="w-full  rounded-lg bg-gray-bg border border-gray-bg p-6 md:p-8 lg:p-12">
         {/* About Us Badge */}
         <div className="flex justify-center md:justify-start mb-6">
           <span

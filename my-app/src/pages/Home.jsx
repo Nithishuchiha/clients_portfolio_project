@@ -1,10 +1,26 @@
 import React from "react";
 
+import HeroSection from "./Home/HeroSection";
+import AboutUs from "./Home/AboutUs";
+import Portfolio from "./Home/Portfolio";
+import Footer from "@/globalComponent/Footer";
+import Blog from "./Home/Blog";
+
 const Home = () => {
   return (
-    <div className="container mx-auto px-6 py-12">
-      <h1 className="text-4xl font-bold">Home Page</h1>
-      <p className="mt-4 text-gray-600">Welcome to the home page!</p>
+    <div className="min-h-screen w-full">
+      {/* Hero Section */}
+      <HeroSection />
+
+      {/* About Us Section */}
+      <AboutUs />
+
+      {/* Portfolio Section */}
+      <Portfolio />
+      <Blog />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

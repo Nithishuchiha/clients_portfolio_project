@@ -27,8 +27,8 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="w-full py-8 md:py-12 lg:py-20 px-4 md:px-6 min-w-[320px]">
-      <div className="max-w-7xl mx-auto min-w-[280px]">
+    <section className="w-full py-4 md:py-12 lg:py-4 min-w-[320px]">
+      <div className="w-full rounded-lg bg-gray-bg border border-gray-bg p-6 md:p-8 lg:p-12">
         {/* Mobile/Tablet Layout */}
         <div className="lg:hidden">
           {/* Heading */}
@@ -180,9 +180,11 @@ const HeroSection = () => {
         </div>
 
         {/* Divider - Hidden on mobile */}
-        <div className="border-t border-dashed border-gray-300 mb-8 lg:mb-16 hidden lg:block"></div>
+        {/* <div className="border-t border-dashed border-gray-300 mb-8 lg:mb-16 hidden lg:block"></div> */}
+      </div>
 
-        {/* Stats Section */}
+      {/* Stats Section - Outside the wrapper */}
+      <div className="w-full mt-8 md:mt-12 lg:mt-16">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 px-2">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">

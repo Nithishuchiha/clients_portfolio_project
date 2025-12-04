@@ -67,7 +67,7 @@ const Footer = () => {
 
   return (
     <footer className="w-full px-6 py-4">
-      <div className="bg-blackCard-bg text-white rounded-2xl px-6 py-12 md:py-16 max-w-[calc(100%-1rem)] mx-auto">
+      <div className="bg-blackCard-bg text-white rounded-2xl px-6 py-12 md:py-16 max-w-full mx-auto">
         {/* Mobile Layout */}
         <div className="md:hidden">
           {/* Logo */}
