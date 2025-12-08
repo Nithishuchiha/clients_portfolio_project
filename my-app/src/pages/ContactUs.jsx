@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Email from '../assets/Contact_images/Email.svg';
-import Phone from '../assets/Contact_images/Phone.svg';
-import Location from '../assets/Contact_images/Location.svg';
+import Email from "../assets/Contact_images/Email.svg";
+import Phone from "../assets/Contact_images/Phone.svg";
+import Location from "../assets/Contact_images/Location.svg";
 import PrimaryButton from "../globalComponent/PrimaryButton";
 
 const ContactUs = () => {
@@ -24,7 +24,6 @@ const ContactUs = () => {
 
   return (
     <div className="max-w-[calc(100%-1rem)] mx-auto rounded-lg bg-gray-bg border border-gray-bg relative z-50 mt-2 flex flex-col lg:flex-row gap-10">
-
       {/* LEFT SECTION */}
       <div className="w-full lg:w-1/2 mt-2 flex flex-col lg:ml-6 md:mt-4">
         <p className="inline-block border self-center md:self-start lg:self-start border-black rounded-full px-3 py-1 text-xs font-medium uppercase">
@@ -41,13 +40,22 @@ const ContactUs = () => {
 
         {/* Contact Cards */}
         <div className="mt-10 flex flex-col gap-4 lg:mt-20">
-
           {/* Email */}
           <div className="bg-white flex items-start gap-3 p-4 rounded-xl shadow-sm w-full max-w">
             <img src={Email} alt="email icon" className="w-10 h-10" />
             <div>
-              <p className="text-xs text-gray-500">Email Address</p>
-              <p className="text-base font-medium">Arunijone@gmail.com</p>
+              <p className="text-xs text-gray-500 ">Email Address</p>
+              <p
+                style={{
+                  fontWeight: 400,
+                  fontSize: "16.58px",
+                  lineHeight: "23.25px",
+                  letterSpacing: "-0.5px",
+                  verticalAlign: "middle",
+                }}
+              >
+                arunijone@gmail.com
+              </p>
             </div>
           </div>
 
@@ -56,7 +64,17 @@ const ContactUs = () => {
             <img src={Phone} alt="phone icon" className="w-10 h-10" />
             <div>
               <p className="text-xs text-gray-500">Phone Number</p>
-              <p className="text-base font-medium">+91 85085 10983</p>
+              <p
+                style={{
+                  fontWeight: 400,
+                  fontSize: "16.58px",
+                  lineHeight: "23.25px",
+                  letterSpacing: "-0.5px",
+                  verticalAlign: "middle",
+                }}
+              >
+                +91 85085 10983
+              </p>
             </div>
           </div>
 
@@ -65,22 +83,26 @@ const ContactUs = () => {
             <img src={Location} alt="location icon" className="w-10 h-10" />
             <div>
               <p className="text-xs text-gray-500">My Location</p>
-              <p className="text-base font-medium">Rameswaram</p>
+              <p
+                style={{
+                  fontWeight: 400,
+                  fontSize: "16.58px",
+                  lineHeight: "23.25px",
+                  letterSpacing: "-0.5px",
+                  verticalAlign: "middle",
+                }}
+              >
+                Rameswaram
+              </p>
             </div>
           </div>
-
         </div>
       </div>
 
       {/* RIGHT SECTION - FORM */}
-      <form
-        onSubmit={handleSubmit}
-        className="w-full lg:w-1/2 p-6 rounded-xl"
-      >
-
+      <form onSubmit={handleSubmit} className="w-full lg:w-1/2 p-6 rounded-xl">
         {/* Row 1 */}
         <div className="flex flex-col md:flex-row gap-4">
-
           <div className="flex flex-col w-full">
             <label className="text-sm font-medium mb-1">Your Name</label>
             <input
@@ -100,7 +122,6 @@ const ContactUs = () => {
               className="rounded-full border px-4 py-3 bg-white"
             />
           </div>
-
         </div>
 
         {/* Email */}
@@ -127,14 +148,9 @@ const ContactUs = () => {
         </div>
 
         {/* Button */}
-        <PrimaryButton
-          type="submit"
-          fullWidth={true}
-          className="mt-6"
-        >
+        <PrimaryButton type="submit" fullWidth={true} className="mt-6 py-2">
           Submit
         </PrimaryButton>
-
       </form>
     </div>
   );
