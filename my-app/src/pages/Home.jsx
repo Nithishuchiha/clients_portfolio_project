@@ -16,6 +16,7 @@ const Home = () => {
     <div className="min-h-screen w-full">
       {/* Hero Section */}
       <HeroSection />
+      <AboutUs />
       <ServiceCategories
         showFilters={false}
         featuredServiceId={featuredServiceId}
@@ -24,7 +25,6 @@ const Home = () => {
         setActiveFilter={setActiveFilter}
       />
       {/* About Us Section */}
-      <AboutUs />
 
       {/* Portfolio Section */}
       <Portfolio />

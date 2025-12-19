@@ -8,6 +8,7 @@ const PrimaryButton = ({
   disabled = false,
   fullWidth = true,
   bgColor = "bg-button-bg",
+  fontFamily,
   ...props
 }) => {
   const widthClass = fullWidth ? "w-full" : "w-auto";
@@ -17,9 +18,9 @@ const PrimaryButton = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${widthClass} ${bgColor} hover:bg-blue-700 flex items-center justify-center text-white rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${className}`}
+      className={`${widthClass} ${bgColor} hover:bg-blue-700 flex items-center px-5 py-2 justify-center text-white rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${className}`}
       style={{
-        fontFamily: "Plus Jakarta Sans",
+        fontFamily: fontFamily || "Plus Jakarta Sans",
         fontWeight: 500,
         fontSize: "15.78px",
         lineHeight: "22.47px",

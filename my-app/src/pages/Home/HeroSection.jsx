@@ -2,80 +2,133 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PrimaryButton from "@/globalComponent/PrimaryButton";
 import arunImage from "@/assets/arunAnna_image.png";
-import alternateImage from "@/assets/alternate.jpg";
 import downloadIcon from "@/assets/Home's_images/download_icon.png";
+import rightArrow from "@/assets/Home's_images/rightArrow_white.png";
 
 const HeroSection = () => {
   const desktopStats = [
     {
       value: "95%",
-      label: "Client satisfaction across multi-service projects",
+      label: (
+        <>
+          Client satisfaction <br />
+          across multi-service <br />
+          projects
+        </>
+      ),
     },
     {
       value: "10+",
-      label: "Innovative solutions delivered in UX, marketing, and research",
+      label: (
+        <>
+          Innovative solutions delivered
+          <br /> in UX, marketing, and
+          <br /> research
+        </>
+      ),
     },
     {
       value: "₹5L",
-      label: "Worth of strategic insights provided across industries",
+      label: (
+        <>
+          Worth of strategic
+          <br /> insights provided across <br />
+          industries
+        </>
+      ),
     },
     {
       value: "5K+",
-      label:
-        "People indirectly reached through digital platforms and client networks",
+      label: (
+        <>
+          People indirectly reached <br />
+          through digital platforms
+          <br /> and client networks
+        </>
+      ),
     },
   ];
 
   const mobileStats = [
     {
       value: "95%",
-      label: "Complete customer satisfaction",
+      label: (
+        <>
+          Client satisfaction across <br />
+          multi-service projects
+        </>
+      ),
     },
     {
       value: "10+",
-      label: "Innovation and valuable insight",
+      label: (
+        <>
+          Innovative solutions <br /> delivered in UX, marketing, <br />
+          and research
+        </>
+      ),
     },
     {
-      value: "$10m",
-      label: "Highly efficient financial strategies",
+      value: "₹5L",
+      label: (
+        <>
+          Worth of strategic insights <br />
+          provided across industries
+        </>
+      ),
     },
     {
-      value: "50m",
-      label: "Users worldwide, providing them with",
+      value: "5K+",
+      label: (
+        <>
+          People indirectly reached <br />
+          through digital platforms and <br />
+          client networks
+        </>
+      ),
     },
   ];
 
   return (
     <section className="w-full py-4 md:py-12 lg:py-4 min-w-[320px]">
-      <div className="w-full rounded-lg bg-gray-bg border border-gray-bg p-6 md:p-8 lg:p-12">
+      <div className="w-full rounded-lg bg-gray-bg border  border-gray-bg p-6 md:p-8 lg:p-8 pb-8 md:pb-10 lg:pb-12">
         {/* Mobile/Tablet Layout */}
         <div className="lg:hidden">
           {/* Heading */}
           <h1
-            className="mb-4 text-center text-[#111111]"
+            className="mb-6 text-center"
             style={{
-              // fontFamily: "Inter",
-              fontSize: "57.84px",
+              color: "rgba(17, 17, 17, 1)",
+              // fontFamily: "SF Pro Display",
+              fontSize: "58px",
               fontWeight: 400,
               lineHeight: "66.33px",
               letterSpacing: "-3.47px",
+              textAlign: "center",
               verticalAlign: "middle",
             }}
           >
-            Expert guidance, tailored solution
+            Expert <br /> guidance,
+            <br /> tailored <br /> to your needs
           </h1>
 
           {/* Description */}
           <p
-            className="mb-6 text-center px-2 font-light text-[#666666] align-middle"
+            className="mb-6  text-center px-2 font-light align-middle"
             style={{
-              fontSize: "13.58px",
-              lineHeight: "20.41px",
+              color: "rgba(109, 109, 110, 0.8)",
+              fontFamily: "SF Pro Display",
+              fontSize: "16px",
+              fontWeight: 400,
+              lineHeight: "22px",
               letterSpacing: "0%",
+              textAlign: "center",
+              verticalAlign: "middle",
             }}
           >
-            Easily adapt to changes and scale your operations with our flexible
-            infrastructure, designed to support your business growth.
+            Our flexible infrastructure empowers your <br />
+            business to adapt quickly, stay efficient, and <br /> scale
+            seamlessly as you grow.
           </p>
 
           {/* CTA Buttons */}
@@ -83,23 +136,38 @@ const HeroSection = () => {
             <Link to="/about" className="flex-1">
               <PrimaryButton
                 fullWidth={true}
-                className="py-3"
+                className="px-6 py-3 whitespace-nowrap"
                 style={{
-                  fontFamily: "Inter",
+                  color: "rgba(255, 255, 255, 1)",
+                  // fontFamily: "SF Pro Display",
                   fontSize: "14px",
-                  fontWeight: 500,
+                  fontWeight: 400,
+                  lineHeight: "20px",
+                  letterSpacing: "0px",
+                  textAlign: "center",
+                  verticalAlign: "middle",
                 }}
               >
-                About Me
+                About Me{" "}
+                <img
+                  src={rightArrow}
+                  alt=""
+                  className="w-4 h-3 ml-2 inline-block"
+                />
               </PrimaryButton>
             </Link>
 
             <button
-              className="flex items-center justify-center gap-2 px-4 py-3 rounded-full border-2 border-blue-600 text-blue-600 hover:bg-blue-50 transition-colors font-medium flex-1"
+              className="flex items-center justify-center gap-2 px-4 sm:px-6 sm:py-4 lg:px-4 lg:py-2 rounded-full border-2 border-[#3e86fc] hover:bg-blue-50 transition-colors font-medium flex-[1.2] sm:flex-1 whitespace-nowrap"
               style={{
-                fontFamily: "Inter",
+                color: "rgba(1, 97, 254, 1)",
+                // fontFamily: "SF Pro Display",
                 fontSize: "14px",
-                fontWeight: 500,
+                fontWeight: 400,
+                lineHeight: "22.47px",
+                letterSpacing: "0px",
+                textAlign: "center",
+                verticalAlign: "middle",
               }}
             >
               Download Resume
@@ -108,14 +176,24 @@ const HeroSection = () => {
           </div>
 
           {/* Image Container */}
-          <div className="flex justify-center mb-8">
-            <div className="relative w-full max-w-[500px]">
+          <div className="flex justify-center  -mx-4">
+            <div
+              className="bg-gray-300 rounded-lg overflow-hidden"
+              style={{
+                width: "359.5px",
+                height: "305.56px",
+                opacity: 1,
+                position: "relative",
+                top: "-0.22px",
+              }}
+            >
               <img
-                src={alternateImage}
+                src={arunImage}
                 alt="Profile"
-                className="rounded-2xl w-full h-auto object-center"
+                className="w-full h-full object-cover relative z-10"
                 style={{
-                  aspectRatio: "4/3",
+                  display: "block",
+                  objectPosition: "center top",
                 }}
               />
             </div>
@@ -123,13 +201,13 @@ const HeroSection = () => {
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden lg:grid grid-cols-2  items-center mb-16">
+        <div className="hidden lg:grid grid-cols-2  items-center ">
           {/* Left Content */}
           <div>
             <h1
               className="mb-6"
               style={{
-                // fontFamily: "Inter",
+                fontFamily: "Inter",
                 fontSize: "57.84px",
                 fontWeight: 400,
                 lineHeight: "66.33px",
@@ -138,22 +216,23 @@ const HeroSection = () => {
                 color: "#111111",
               }}
             >
-              Expert guidance, tailored to your needs
+              Expert guidance, tailored <br /> to your needs
             </h1>
             <p
-              className="mb-8 font-light text-[#666666] align-middle"
+              className="mb-8 font-light align-middle"
               style={{
-                // fontFamily: "Inter",
-                fontSize: "13.58px",
-                lineHeight: "20.41px",
+                color: "rgba(109, 109, 110, 0.8)",
+                fontFamily: "Inter",
+                fontSize: "16px",
+                fontWeight: 400,
+                lineHeight: "22px",
                 letterSpacing: "0%",
-                width: "413.66px",
-                height: "36.91px",
-                opacity: 1,
+                verticalAlign: "middle",
               }}
             >
               Our flexible infrastructure empowers your business to adapt
-              quickly, stay efficient, and scale seamlessly as you grow.
+              quickly, <br />
+              stay efficient, and scale seamlessly as you grow.
             </p>
 
             {/* CTA Buttons */}
@@ -161,25 +240,34 @@ const HeroSection = () => {
               <Link to="/about">
                 <PrimaryButton
                   fullWidth={false}
-                  className="px-6 py-3"
+                  className="px-6 py-5"
                   style={{
-                    fontFamily: "Inter",
-                    fontSize: "15px",
-                    fontWeight: 500,
+                    // fontFamily: "SF Pro Display",
+                    fontWeight: 400,
+                    fontSize: "16px",
+                    lineHeight: "17.96px",
+                    letterSpacing: "0px",
+                    verticalAlign: "middle",
                   }}
                 >
-                  About Me
+                  About Me{" "}
+                  <img
+                    src={rightArrow}
+                    alt=""
+                    className="w-4 h-3 ml-2 inline-block"
+                  />
                 </PrimaryButton>
               </Link>
 
               <button
-                className="flex items-center gap-2 px-6 py-3 rounded-full border-2 border-blue-600 text-[#0161FE] hover:bg-blue-50 transition-colors"
+                className="flex items-center gap-2 px-6 py-3 rounded-full border border-blue-600 text-[#0161FE] hover:bg-blue-50 transition-colors"
                 style={{
-                  fontFamily: "Plus Jakarta Sans",
-                  fontSize: "12px",
-                  fontWeight: 500,
-                  lineHeight: "17.1px",
-                  letterSpacing: "-0.06px",
+                  // fontFamily: "SF Pro Display",
+                  gap: "6px",
+                  fontSize: "16px",
+                  fontWeight: 400,
+                  lineHeight: "22.47px",
+                  letterSpacing: "0px",
                   textAlign: "center",
                   verticalAlign: "middle",
                 }}
@@ -195,17 +283,24 @@ const HeroSection = () => {
           </div>
 
           {/* Right Image Container */}
-          <div className="flex justify-end">
-            <div className="bg-gray-300 rounded-lg w-full max-w-md h-[450px]">
-              <div className="relative w-full h-full">
-                {/* Gradient Background */}
-
-                <img
-                  src={arunImage}
-                  alt="Profile"
-                  className="rounded-lg w-full h-full object-cover object-top relative z-10"
-                />
-              </div>
+          <div className="flex-col justify-end items-end">
+            <div
+              className="bg-gray-300 rounded-lg overflow-hidden"
+              style={{
+                width: "630px",
+                height: "601px",
+                opacity: 1,
+              }}
+            >
+              <img
+                src={arunImage}
+                alt="Profile"
+                className="w-full h-full object-cover relative z-10"
+                style={{
+                  display: "block",
+                  objectPosition: "center top",
+                }}
+              />
             </div>
           </div>
         </div>
@@ -215,7 +310,7 @@ const HeroSection = () => {
       </div>
 
       {/* Stats Section - Outside the wrapper */}
-      <div className="w-full mt-8 md:mt-8 lg:mt-8">
+      <div className="w-full mt-10 md:mt-8 lg:mt-14 md:mb-5 lg:mb-5">
         {/* Mobile Stats */}
         <div className="grid grid-cols-2 gap-6 px-2 lg:hidden">
           {mobileStats.map((stat, index) => (
@@ -223,25 +318,26 @@ const HeroSection = () => {
               <h3
                 className="mb-4"
                 style={{
-                  // fontFamily: "Inter",
-                  fontSize: "51.25px",
+                  fontFamily: "Inter",
+                  fontSize: "38px",
                   fontWeight: 400,
-                  lineHeight: "61.52px",
-                  letterSpacing: "-1.54px",
+                  lineHeight: "45.77px",
+                  letterSpacing: "0%",
                   textAlign: "center",
                   verticalAlign: "middle",
+                  color: "rgba(17, 17, 17, 1)",
                 }}
               >
                 {stat.value}
               </h3>
               <p
-                className="text-gray-600"
                 style={{
-                  fontFamily: "Inter",
-                  fontSize: "13.3px",
-                  fontWeight: 300,
-                  lineHeight: "20.02px",
-                  letterSpacing: "-0.13px",
+                  color: "rgba(109, 109, 110, 0.8)",
+                  // fontFamily: "SF Pro Display",
+                  fontSize: "16px",
+                  fontWeight: 400,
+                  lineHeight: "22px",
+                  letterSpacing: "0px",
                   textAlign: "center",
                   verticalAlign: "middle",
                   opacity: 1,
@@ -260,7 +356,6 @@ const HeroSection = () => {
               <h3
                 className="mb-2"
                 style={{
-                  // fontFamily: "Inter",
                   fontSize: "51.25px",
                   fontWeight: 400,
                   lineHeight: "61.52px",
@@ -272,13 +367,13 @@ const HeroSection = () => {
                 {stat.value}
               </h3>
               <p
-                className="text-gray-600"
                 style={{
-                  fontFamily: "Inter",
-                  fontSize: "13.3px",
-                  fontWeight: 300,
-                  lineHeight: "20.02px",
-                  letterSpacing: "-0.13px",
+                  color: "rgba(109, 109, 110, 0.8)",
+                  fontFamily: "SF Pro Display",
+                  fontSize: "16px",
+                  fontWeight: 400,
+                  lineHeight: "22px",
+                  letterSpacing: "0px",
                   textAlign: "center",
                   verticalAlign: "middle",
                   opacity: 1,
